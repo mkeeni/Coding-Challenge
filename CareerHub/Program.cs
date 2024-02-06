@@ -30,9 +30,10 @@ namespace CareerHub
                 Console.WriteLine("8. Get Companies");
                 Console.WriteLine("9. Get All Applicants");
                 Console.WriteLine("10. Get Applications for Job");
+                Console.WriteLine("11. Get job listings within salary range");
                 Console.WriteLine("0. Exit");
 
-                Console.Write("Enter your choice (0-10): ");
+                Console.Write("Enter your choice (0-11): ");
                 int choice;
                 if (!int.TryParse(Console.ReadLine(), out choice))
                 {
@@ -72,6 +73,9 @@ namespace CareerHub
                     case 10:
                         service.GetApplicationsForJobsS();
                         break;
+                    case 11:
+                        service.GetJobListingsWithinRangeS();
+                        break;
                     case 0:
                         Console.WriteLine("Exiting program.");
                         return;
@@ -80,5 +84,6 @@ namespace CareerHub
                         break;
                 }
             }
+        }
     }
 }

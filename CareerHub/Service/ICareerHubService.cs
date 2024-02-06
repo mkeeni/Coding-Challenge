@@ -29,5 +29,7 @@ namespace CareerHub.Service
         void GetAllApplicantsS();
 
         void GetApplicationsForJobS();
+
+        void GetJobListingsWithinRangeS();
     }
 }

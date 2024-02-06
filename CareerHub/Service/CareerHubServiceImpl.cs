@@ -182,6 +182,26 @@ namespace CareerHub.Service
 
         }
 
+        public void GetJobListingsWithinRangeS()
+        {
+            List<JobListing> jobs = new List<JobListing>();
+
+            Console.WriteLine("Enter lower end Value: ");
+            decimal l = decimal.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter higher end Value: ");
+            decimal h = decimal.Parse(Console.ReadLine());
+
+            jobs = _careerHub.GetJobListingsWithinRange(l,h);
+
+            foreach (var job in jobs)
+            {
+                Console.WriteLine($"\nApplicant ID: {job.JobID}\t Job Description: {job.JobDescription}\t Title: {job.JobTitle}\t Location: {job.JobLocation}\t Salary: {job.Salary}\t Job Type:{job.JobType}\t Posted Date:{job.PostedDate}");
+
+            }
+
+
+        }
 
     }
 }

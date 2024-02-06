@@ -45,6 +45,15 @@ namespace CareerHub.Repository
                 cmd.Parameters.AddWithValue("@CoverLetter", coverLetter);
 
                 int applicationStatus = cmd.ExecuteNonQuery();
+                if (applicationStatus > 0)
+                {
+                    Console.WriteLine("Application successful.");
+
+                }
+                else
+                {
+                    Console.WriteLine("Error.Application unsuccessful..");
+                }
                 sqlconnection.Close();
                
             }
@@ -105,6 +114,15 @@ namespace CareerHub.Repository
                 cmd.Parameters.AddWithValue("@salary", salary);
                 cmd.Parameters.AddWithValue("@jobType", jobType);
                 int postingStatus = cmd.ExecuteNonQuery();
+                if (postingStatus > 0)
+                {
+                    Console.WriteLine("Job posted successfully.");
+
+                }
+                else
+                {
+                    Console.WriteLine("Error.Job not posted.");
+                }
                 sqlconnection.Close();
 
             }
@@ -167,6 +185,15 @@ namespace CareerHub.Repository
                 cmd.Parameters.AddWithValue("@resume", resume);
                 cmd.Parameters.AddWithValue("@phone", phone);
                 int createProfileStatus = cmd.ExecuteNonQuery();
+                if (createProfileStatus > 0)
+                {
+                    Console.WriteLine("Applicant added.");
+
+                }
+                else
+                {
+                    Console.WriteLine("Error.Applicant not added.");
+                }
                 sqlconnection.Close();
 
             }
@@ -189,6 +216,16 @@ namespace CareerHub.Repository
                 cmd.Parameters.AddWithValue("@companyName", company.CompanyName);
                 cmd.Parameters.AddWithValue("@location", company.Location);
                 int addCompanyStatus = cmd.ExecuteNonQuery();
+                if (addCompanyStatus > 0)
+                {
+                    Console.WriteLine("Company added successfully.");
+
+                }
+                else 
+                {
+                    Console.WriteLine("Error.Company not added.");
+                }
+
                 sqlconnection.Close();
 
             }
@@ -334,7 +371,7 @@ namespace CareerHub.Repository
             return applications;
 
         }
-        /*
+        
         public List<JobListing> GetJobListingsWithinRange(decimal l,decimal h)
         {
 
@@ -343,7 +380,9 @@ namespace CareerHub.Repository
             {
                 cmd.CommandText = "select * from Jobs where Salary>=@l and salary<=@h;";
                 cmd.Parameters.Clear();
-                cmd.
+                cmd.Parameters.AddWithValue("@l",l);
+                cmd.Parameters.AddWithValue("@h",h);
+
                 cmd.Connection = sqlconnection;
                 sqlconnection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -372,6 +411,6 @@ namespace CareerHub.Repository
 
 
             return jobs;
-        }*/
+        }
     }
 }

@@ -27,5 +27,7 @@ namespace CareerHub.Repository
         List<Applicant> GetAllApplicants();
 
         List<JobApplication> GetApplicationsForJob(int jobID);
+
+        List<JobListing> GetJobListingsWithinRange(decimal l, decimal h);
     }
 }
